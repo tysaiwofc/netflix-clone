@@ -13,22 +13,22 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ visible }) => {
     <div className="bg-black w-56 absolute top-8 left-0 py-5 flex-col border-2 border-gray-800 flex">
       <div className="flex flex-col gap-4">
         <div className="px-3 text-center text-white hover:underline">
-          Home
+          Início
         </div>
         <div className="px-3 text-center text-white hover:underline">
-          Series
+          Séries
         </div>
         <div className="px-3 text-center text-white hover:underline">
-          Films
+          Filmes
         </div>
         <div className="px-3 text-center text-white hover:underline">
-          New & Popular
+          Bombando
         </div>
         <div className="px-3 text-center text-white hover:underline">
-          My List
+          Minha lista
         </div>
         <div className="px-3 text-center text-white hover:underline">
-          Browse by Languages
+          Navegar por idiomas
         </div>
       </div>
     </div>

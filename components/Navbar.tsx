@@ -42,12 +42,12 @@ const Navbar = () => {
       <div className={`px-4 md:px-16 py-6 flex flex-row items-center transition duration-500 ${showBackground ? 'bg-zinc-900 bg-opacity-90' : ''}`}>
         <img src="/images/logo.png" className="h-4 lg:h-7" alt="Logo" />
         <div className="flex-row ml-8 gap-7 hidden lg:flex">
-          <NavbarItem label="Home" active />
-          <NavbarItem label="Series" />
-          <NavbarItem label="Films" />
-          <NavbarItem label="New & Popular" />
-          <NavbarItem label="My List" />
-          <NavbarItem label="Browse by Languages" />
+          <NavbarItem label="Início" active />
+          <NavbarItem label="Séries" />
+          <NavbarItem label="Filmes" />
+          <NavbarItem label="Bombando" />
+          <NavbarItem label="Minha lista" />
+          <NavbarItem label="Navegar por idiomas" />
         </div>
         <div onClick={toggleMobileMenu} className="lg:hidden flex flex-row items-center gap-2 ml-8 cursor-pointer relative">
           <p className="text-white text-sm">Browse</p>
