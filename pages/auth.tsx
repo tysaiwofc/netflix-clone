@@ -62,7 +62,7 @@ const Auth = () => {
         password
       });
 
-      login();
+      login(); //agua
     } catch (error) {
 
         console.log(error);
