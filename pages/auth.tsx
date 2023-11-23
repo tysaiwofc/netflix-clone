@@ -78,7 +78,7 @@ const Auth = () => {
             <h2 className="text-white text-4xl mb-8 font-semibold">
               {variant === 'login' ? 'Login' : 'Nova conta'}
             </h2>
-            <div className="flex flex-col gap-1">
+           <div className="flex flex-col gap-1">
               {variant === 'register' && (
                 <Input
                   id="name"
@@ -96,7 +96,7 @@ const Auth = () => {
                 onChange={(e: any) => setEmail(e.target.value)} 
               />
               <Input
-                type="password" 
+                type="text" 
                 id="password" 
                 label="Senha" 
                 value={password}
