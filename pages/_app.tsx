@@ -16,7 +16,7 @@ export default function SuaPagina({
     <SessionProvider session={session}>
       <>
 
-          <title>{title || 'Netflix'}</title>
+          <title>{title || 'Friend Flix'}</title>
 
         <Component {...pageProps} />
       </>

@@ -72,4 +72,17 @@ model Movie {
   duration String
   username String?
   createdAt DateTime? @default(now())
+  tags String?
+}
+
+model Serie {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  description String
+  videoUrl String
+  thumbnailUrl String
+  genre String
+  duration String
+  username String?
+  createdAt DateTime? @default(now())
 }

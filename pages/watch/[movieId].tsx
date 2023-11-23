@@ -1,3 +1,4 @@
+"use server"
 import React, { useState, useEffect } from 'react';
 import { ArrowLeftIcon } from '@heroicons/react/24/outline';
 import { useRouter } from 'next/router';
@@ -38,7 +39,7 @@ const Watch = () => {
         <title>{data?.title || 'Watch'}</title>
       </Head>
       <nav
-        className={`fixed w-full p-4 z-10 flex flex-row items-center gap-8 bg-black bg-opacity-70 transition-opacity ${
+        className={`fixed w-full p-4 z-10 flex flex-row items-center gap-8 transition-opacity ${
           isMouseOver ? 'opacity-100' : 'opacity-0'
         }`}
       >
