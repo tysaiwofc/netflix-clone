@@ -114,13 +114,13 @@ const Auth = () => {
                 <FaGithub size={32} />
               </div> */}
             </div>
-            <p className="text-neutral-500 mt-12">
+            {/* <p className="text-neutral-500 mt-12">
               {variant === 'login' ? 'Primeira vez aqui?' : 'Já tem uma conta?'}
               <span onClick={toggleVariant} className="text-white ml-1 hover:underline cursor-pointer">
                 {variant === 'login' ? 'Criar uma conta' : 'Fazer login'}
               </span>
               .
-            </p>
+            </p> */}
           </div>
         </div>
       </div>
