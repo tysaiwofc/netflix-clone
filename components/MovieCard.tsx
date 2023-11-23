@@ -16,7 +16,16 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
   const { openModal } = useInfoModalStore();
 
   const redirectToWatch = useCallback(() => router.push(`/watch/${data.id}`), [router, data.id]);
-
+  const isCreatedOneMonthAgo = (createdAt: any) => {
+    if (!createdAt) {
+      return null;
+    }
+  
+    const oneMonthAgo = new Date();
+    oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+  
+    return createdAt <= oneMonthAgo;
+  }
   return (
     <div className="group bg-zinc-900 col-span relative h-[12vw]">
       <img onClick={redirectToWatch} src={data.thumbnailUrl} alt="Movie" draggable={false} className="
@@ -79,8 +88,8 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
               <ChevronDownIcon className="text-white group-hover/item:text-neutral-300 w-4 lg:w-6" />
             </div>
           </div>
-          <p className="text-green-400 font-semibold mt-4">
-            Novo <span className="text-white">2023</span>
+          <p className={isCreatedOneMonthAgo(data?.createdAt) === false ? "text-green-400 font-semibold mt-4" : "text-yellow-400 font-semibold mt-4"}>
+            {isCreatedOneMonthAgo(data?.createdAt) === false ? 'Novo' : 'Em destaque'} <span className="text-white bg-blue-400 rounded text-xs p-1">{data?.username ? data?.username : 'Sem autor'}</span>
           </p>
           <div className="flex flex-row mt-4 gap-2 items-center"> 
             <p className="text-white text-[10px] lg:text-sm">{data.duration}</p>

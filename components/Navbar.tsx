@@ -39,8 +39,9 @@ const Navbar = () => {
 
   return (
     <nav className="w-full fixed z-40">
-      <div className={`px-4 md:px-16 py-6 flex flex-row items-center transition duration-500 ${showBackground ? 'bg-zinc-900 bg-opacity-90' : ''}`}>
+      <div className={`px-4 md:px-16 py-2 flex flex-row items-center transition duration-500 ${showBackground ? 'bg-black ' : ''}`}>
         <img src="/images/logo.png" className="h-4 lg:h-7" alt="Logo" />
+        
         <div className="flex-row ml-8 gap-7 hidden lg:flex">
           <NavbarItem label="Início" active />
           <NavbarItem label="Séries" />
@@ -56,7 +57,8 @@ const Navbar = () => {
         </div>
         <div className="flex flex-row ml-auto gap-7 items-center">
           <div className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
-            <MagnifyingGlassIcon className="w-6" />
+             <MagnifyingGlassIcon className="w-6" /> 
+            {/* <input className='rounded-sm text-white bg-black border' placeholder='Pesquise aqui'></input> */}
           </div>
           <div className="text-gray-200 hover:text-gray-300 cursor-pointer transition">
             <BellIcon className="w-6" />

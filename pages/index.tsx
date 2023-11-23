@@ -22,6 +22,8 @@ export async function getServerSideProps(context: NextPageContext) {
     }
   }
 
+  console.log(session)
+
   return {
     props: {}
   }
@@ -30,7 +32,20 @@ export async function getServerSideProps(context: NextPageContext) {
 const Home = () => {
   const { data: movies = [] } = useMovieList();
   const { data: favorites = [] } = useFavorites();
-  const {isOpen, closeModal} = useInfoModalStore();
+  const { isOpen, closeModal } = useInfoModalStore();
+
+  const isCreatedOneMonthAgo = (createdAt: any) => {
+    if (!createdAt) {
+      return false; // Se a data de criação for nula, consideramos que não foi criado há um mês
+    }
+
+    const oneMonthAgo = new Date();
+    oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+
+    // Convertendo as datas para números para poder compará-las
+    const createdAtDate = new Date(createdAt);
+    return createdAtDate.getTime() >= oneMonthAgo.getTime();
+  }
 
   return (
     <>
@@ -38,11 +53,13 @@ const Home = () => {
       <Navbar />
       <Billboard />
       <div className="pb-40">
-        <MovieList title="Trending Now" data={movies} />
-        <MovieList title="My List" data={favorites} />
+        <MovieList title="Novidades" data={movies.filter((movie: any) => isCreatedOneMonthAgo(movie?.createdAt))} />
+        <MovieList title="Tendências" data={movies} />
+        <MovieList title="Ação" data={movies.filter((movie: any) => movie.genre === 'Action')} />
+        <MovieList title="Minha lista" data={favorites} />
       </div>
     </>
-  )
+  );
 }
 
 export default Home;

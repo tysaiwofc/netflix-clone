@@ -7,7 +7,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(405).end();
     }
 
-    const {name, video, thumbnail, gender, duration, description  } = req.body;
+    const {name, username, video, thumbnail, gender, duration, description  } = req.body;
 
     const user = await prismadb.movie.create({
         data: {
@@ -16,8 +16,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             videoUrl: video,
             thumbnailUrl: thumbnail,
             genre: gender,
-            duration
-        }
+            duration,
+            username
+        } as any
     })
 
     return res.status(200).json(user);

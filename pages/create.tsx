@@ -1,8 +1,8 @@
 // pages/index.js
 import { useState } from 'react';
-import Image from 'next/image'
 
 export default function Home() {
+
   const [formData, setFormData] = useState({
     name: '',
     thumbnail: '',
@@ -13,6 +13,9 @@ export default function Home() {
 
   });
 
+  
+
+
   const handleChange = (e: any) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -20,13 +23,17 @@ export default function Home() {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
+    const formDataWithUser = {
+      ...formData,
+      username: 'Tysaiw'
+    }
     try {
       const response = await fetch('/api/entries', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(formDataWithUser),
       });
 
       if (response.ok) {
@@ -43,7 +50,7 @@ export default function Home() {
     <div className="flex items-center justify-center min-h-screen bg-gray-900">
       <div className="bg-gray-800 p-3 rounded-md max-w-md w-full">
         <div>
-        <h1 className="text-3xl font-bold text-white mb-6">Adicionar Filme</h1>
+        <h1 className="text-3xl font-bold text-white mb-6 text-center">Adicionar Filme</h1>
         <form onSubmit={handleSubmit}>
           <label className="flex flex-col mb-4">
             <span className="text-gray-300">Nome: </span>

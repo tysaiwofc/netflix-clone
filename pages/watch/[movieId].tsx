@@ -44,7 +44,7 @@ const Watch = () => {
       >
         <ArrowLeftIcon onClick={() => router.push('/')} className="w-4 md:w-10 text-white cursor-pointer hover:opacity-80 transition" />
         <p className="text-white text-1xl md:text-3xl font-bold">
-          <span className="font-light">Watching:</span> {data?.title}
+          <span className="font-light">Assistindo:</span> {data?.title}
         </p>
       </nav>
       {data?.videoUrl.includes('mp4') || data?.videoUrl.includes('mkv') || data?.videoUrl.includes('mp') ? (

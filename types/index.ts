@@ -6,4 +6,6 @@ export interface MovieInterface {
   videoUrl: string;
   duration: string;
   genre: string;
+  username: string;
+  createdAt: Date;
 }
